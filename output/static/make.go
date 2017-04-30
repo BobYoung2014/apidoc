@@ -32,6 +32,10 @@ var assets = []string{
 	"./style.css",
 	"./jquery-3.0.0.min.js",
 	"./app.js",
+	"./prism.min.css",
+	"./prism-autoloader.min.js",
+	"./prism.min.js",
+	"./prism-json.min.js",
 }
 
 // 需要序列化的模板文件。
@@ -80,7 +84,7 @@ func makeStatic(w *bufio.Writer) {
 		w.WriteString(`":`)
 		w.WriteString("[]byte(`")
 		w.Write(data)
-		w.WriteString("`),")
+		w.WriteString("`),\n")
 	}
 	w.WriteString("}\n")
 }
