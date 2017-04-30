@@ -32,7 +32,7 @@ type htmlPage struct {
 	Groups         map[string][]*doc.API // 按组名形式组织的文档集合
 	GroupName      string                // 当前分组名称
 	Group          []*doc.API            // 当前组的文档集合
-	Date           time.Time             // 生成日期
+	Date           string             // 生成日期
 	AppVersion     string                // apidoc 的版本号
 	AppName        string                // 程序名称
 	AppRepoURL     string                // 仓库地址
@@ -115,7 +115,7 @@ func buildHTMLPage(docs *doc.Doc, opt *Options) *htmlPage {
 		AppRepoURL:     app.RepoURL,
 		AppOfficialURL: app.OfficialURL,
 		Elapsed:        opt.Elapsed,
-		Date:           time.Now(),
+		Date:           time.Now().Format("2006-01-02 15:04:05"),
 		Groups:         make(map[string][]*doc.API, 100),
 	}
 
